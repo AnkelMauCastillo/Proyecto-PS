@@ -1,0 +1,24 @@
+    lex.py: 924:lex: tokens   = ['ID', 'PTCOMA', 'PARIZQ', 'PARDER', 'DECIMAL', 'ENTERO', 'MAYORIGUAL', 'MENORIGUAL', 'IGUALIGUAL', 'DIFERENTE', 'IGUAL', 'MAYOR', 'MENOR', 'MAS', 'MENOS', 'MULTIPLICACION', 'DIVISION', 'COMENTARIO', 'LET', 'IN', 'ENDLET', 'IF', 'THEN', 'ELSE', 'ENDIF']
+    lex.py: 925:lex: literals = ''
+    lex.py: 926:lex: states   = {'INITIAL': 'inclusive'}
+    lex.py: 953:lex: Adding rule t_ID -> '[a-zA-Z_][a-zA-Z_0-9]*' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_DECIMAL -> '\d+\.\d+' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_ENTERO -> '\d+' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_COMENTARIO -> '%.*' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_newline -> '\n+' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_PARIZQ -> '\(' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_PARDER -> '\)' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MAYORIGUAL -> '>=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MENORIGUAL -> '<=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_DIFERENTE -> '!=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_IGUALIGUAL -> '==' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MAS -> '\+' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MENOS -> '\-' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MAYOR -> '\>' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MENOR -> '\<' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MULTIPLICACION -> '\*' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_PTCOMA -> ';' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_IGUAL -> '=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_DIVISION -> '/' (state 'INITIAL')
+    lex.py: 966:lex: ==== MASTER REGEXS FOLLOW ====
+    lex.py: 975:lex: state 'INITIAL' : regex[0] = '(?P<t_ID>[a-zA-Z_][a-zA-Z_0-9]*)|(?P<t_DECIMAL>\d+\.\d+)|(?P<t_ENTERO>\d+)|(?P<t_COMENTARIO>%.*)|(?P<t_newline>\n+)|(?P<t_PARIZQ>\()|(?P<t_PARDER>\))|(?P<t_MAYORIGUAL>>=)|(?P<t_MENORIGUAL><=)|(?P<t_DIFERENTE>!=)|(?P<t_IGUALIGUAL>==)|(?P<t_MAS>\+)|(?P<t_MENOS>\-)|(?P<t_MAYOR>\>)|(?P<t_MENOR>\<)|(?P<t_MULTIPLICACION>\*)|(?P<t_PTCOMA>;)|(?P<t_IGUAL>=)|(?P<t_DIVISION>/)'

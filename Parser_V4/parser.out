@@ -1,0 +1,1237 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> condicion
+Rule 2     condicion -> expresion
+Rule 3     condicion -> expresion op_relacional expresion
+Rule 4     condicion -> COMENTARIO
+Rule 5     expresion -> termino
+Rule 6     expresion -> termino MAS expresion
+Rule 7     expresion -> termino MENOS expresion
+Rule 8     termino -> factor
+Rule 9     termino -> factor MULTIPLICACION expresion
+Rule 10    termino -> factor DIVISION expresion
+Rule 11    factor -> ID
+Rule 12    factor -> numero
+Rule 13    factor -> PARIZQ expresion PARDER
+Rule 14    factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA
+Rule 15    factor -> IF condicion THEN programa ELSE programa ENDIF
+Rule 16    op_relacional -> expresion MAYOR expresion
+Rule 17    op_relacional -> expresion MENOR expresion
+Rule 18    op_relacional -> expresion MAYORIGUAL expresion
+Rule 19    op_relacional -> expresion MENORIGUAL expresion
+Rule 20    op_relacional -> expresion IGUALIGUAL expresion
+Rule 21    op_relacional -> expresion DIFERENTE expresion
+Rule 22    numero -> ENTERO
+Rule 23    numero -> DECIMAL
+
+Terminals, with rules where they appear
+
+COMENTARIO           : 4
+DECIMAL              : 23
+DIFERENTE            : 21
+DIVISION             : 10
+ELSE                 : 15
+ENDIF                : 15
+ENDLET               : 14
+ENTERO               : 22
+ID                   : 11 14
+IF                   : 15
+IGUAL                : 14
+IGUALIGUAL           : 20
+IN                   : 14
+LET                  : 14
+MAS                  : 6
+MAYOR                : 16
+MAYORIGUAL           : 18
+MENOR                : 17
+MENORIGUAL           : 19
+MENOS                : 7
+MULTIPLICACION       : 9
+PARDER               : 13
+PARIZQ               : 13
+PTCOMA               : 14
+THEN                 : 15
+error                : 
+
+Nonterminals, with rules where they appear
+
+condicion            : 1 15
+expresion            : 2 3 3 6 7 9 10 13 14 16 16 17 17 18 18 19 19 20 20 21 21
+factor               : 8 9 10
+numero               : 12
+op_relacional        : 3
+programa             : 14 15 15 0
+termino              : 5 6 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . condicion
+    (2) condicion -> . expresion
+    (3) condicion -> . expresion op_relacional expresion
+    (4) condicion -> . COMENTARIO
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    COMENTARIO      shift and go to state 4
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    programa                       shift and go to state 1
+    condicion                      shift and go to state 2
+    expresion                      shift and go to state 3
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> condicion .
+
+    $end            reduce using rule 1 (programa -> condicion .)
+    ELSE            reduce using rule 1 (programa -> condicion .)
+    ENDLET          reduce using rule 1 (programa -> condicion .)
+    ENDIF           reduce using rule 1 (programa -> condicion .)
+
+
+state 3
+
+    (2) condicion -> expresion .
+    (3) condicion -> expresion . op_relacional expresion
+    (16) op_relacional -> . expresion MAYOR expresion
+    (17) op_relacional -> . expresion MENOR expresion
+    (18) op_relacional -> . expresion MAYORIGUAL expresion
+    (19) op_relacional -> . expresion MENORIGUAL expresion
+    (20) op_relacional -> . expresion IGUALIGUAL expresion
+    (21) op_relacional -> . expresion DIFERENTE expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    $end            reduce using rule 2 (condicion -> expresion .)
+    THEN            reduce using rule 2 (condicion -> expresion .)
+    ELSE            reduce using rule 2 (condicion -> expresion .)
+    ENDLET          reduce using rule 2 (condicion -> expresion .)
+    ENDIF           reduce using rule 2 (condicion -> expresion .)
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 14
+    op_relacional                  shift and go to state 15
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 4
+
+    (4) condicion -> COMENTARIO .
+
+    $end            reduce using rule 4 (condicion -> COMENTARIO .)
+    THEN            reduce using rule 4 (condicion -> COMENTARIO .)
+    ELSE            reduce using rule 4 (condicion -> COMENTARIO .)
+    ENDLET          reduce using rule 4 (condicion -> COMENTARIO .)
+    ENDIF           reduce using rule 4 (condicion -> COMENTARIO .)
+
+
+state 5
+
+    (5) expresion -> termino .
+    (6) expresion -> termino . MAS expresion
+    (7) expresion -> termino . MENOS expresion
+
+  ! shift/reduce conflict for MAS resolved as shift
+  ! shift/reduce conflict for MENOS resolved as shift
+    ID              reduce using rule 5 (expresion -> termino .)
+    PARIZQ          reduce using rule 5 (expresion -> termino .)
+    LET             reduce using rule 5 (expresion -> termino .)
+    IF              reduce using rule 5 (expresion -> termino .)
+    ENTERO          reduce using rule 5 (expresion -> termino .)
+    DECIMAL         reduce using rule 5 (expresion -> termino .)
+    $end            reduce using rule 5 (expresion -> termino .)
+    MAYOR           reduce using rule 5 (expresion -> termino .)
+    MENOR           reduce using rule 5 (expresion -> termino .)
+    MAYORIGUAL      reduce using rule 5 (expresion -> termino .)
+    MENORIGUAL      reduce using rule 5 (expresion -> termino .)
+    IGUALIGUAL      reduce using rule 5 (expresion -> termino .)
+    DIFERENTE       reduce using rule 5 (expresion -> termino .)
+    PARDER          reduce using rule 5 (expresion -> termino .)
+    THEN            reduce using rule 5 (expresion -> termino .)
+    ELSE            reduce using rule 5 (expresion -> termino .)
+    ENDLET          reduce using rule 5 (expresion -> termino .)
+    ENDIF           reduce using rule 5 (expresion -> termino .)
+    IN              reduce using rule 5 (expresion -> termino .)
+    MAS             shift and go to state 16
+    MENOS           shift and go to state 17
+
+  ! MAS             [ reduce using rule 5 (expresion -> termino .) ]
+  ! MENOS           [ reduce using rule 5 (expresion -> termino .) ]
+
+
+state 6
+
+    (8) termino -> factor .
+    (9) termino -> factor . MULTIPLICACION expresion
+    (10) termino -> factor . DIVISION expresion
+
+    MAS             reduce using rule 8 (termino -> factor .)
+    MENOS           reduce using rule 8 (termino -> factor .)
+    ID              reduce using rule 8 (termino -> factor .)
+    PARIZQ          reduce using rule 8 (termino -> factor .)
+    LET             reduce using rule 8 (termino -> factor .)
+    IF              reduce using rule 8 (termino -> factor .)
+    ENTERO          reduce using rule 8 (termino -> factor .)
+    DECIMAL         reduce using rule 8 (termino -> factor .)
+    $end            reduce using rule 8 (termino -> factor .)
+    MAYOR           reduce using rule 8 (termino -> factor .)
+    MENOR           reduce using rule 8 (termino -> factor .)
+    MAYORIGUAL      reduce using rule 8 (termino -> factor .)
+    MENORIGUAL      reduce using rule 8 (termino -> factor .)
+    IGUALIGUAL      reduce using rule 8 (termino -> factor .)
+    DIFERENTE       reduce using rule 8 (termino -> factor .)
+    PARDER          reduce using rule 8 (termino -> factor .)
+    THEN            reduce using rule 8 (termino -> factor .)
+    ELSE            reduce using rule 8 (termino -> factor .)
+    ENDLET          reduce using rule 8 (termino -> factor .)
+    ENDIF           reduce using rule 8 (termino -> factor .)
+    IN              reduce using rule 8 (termino -> factor .)
+    MULTIPLICACION  shift and go to state 18
+    DIVISION        shift and go to state 19
+
+
+state 7
+
+    (11) factor -> ID .
+
+    MULTIPLICACION  reduce using rule 11 (factor -> ID .)
+    DIVISION        reduce using rule 11 (factor -> ID .)
+    MAS             reduce using rule 11 (factor -> ID .)
+    MENOS           reduce using rule 11 (factor -> ID .)
+    ID              reduce using rule 11 (factor -> ID .)
+    PARIZQ          reduce using rule 11 (factor -> ID .)
+    LET             reduce using rule 11 (factor -> ID .)
+    IF              reduce using rule 11 (factor -> ID .)
+    ENTERO          reduce using rule 11 (factor -> ID .)
+    DECIMAL         reduce using rule 11 (factor -> ID .)
+    $end            reduce using rule 11 (factor -> ID .)
+    MAYOR           reduce using rule 11 (factor -> ID .)
+    MENOR           reduce using rule 11 (factor -> ID .)
+    MAYORIGUAL      reduce using rule 11 (factor -> ID .)
+    MENORIGUAL      reduce using rule 11 (factor -> ID .)
+    IGUALIGUAL      reduce using rule 11 (factor -> ID .)
+    DIFERENTE       reduce using rule 11 (factor -> ID .)
+    PARDER          reduce using rule 11 (factor -> ID .)
+    THEN            reduce using rule 11 (factor -> ID .)
+    ELSE            reduce using rule 11 (factor -> ID .)
+    ENDLET          reduce using rule 11 (factor -> ID .)
+    ENDIF           reduce using rule 11 (factor -> ID .)
+    IN              reduce using rule 11 (factor -> ID .)
+
+
+state 8
+
+    (12) factor -> numero .
+
+    MULTIPLICACION  reduce using rule 12 (factor -> numero .)
+    DIVISION        reduce using rule 12 (factor -> numero .)
+    MAS             reduce using rule 12 (factor -> numero .)
+    MENOS           reduce using rule 12 (factor -> numero .)
+    ID              reduce using rule 12 (factor -> numero .)
+    PARIZQ          reduce using rule 12 (factor -> numero .)
+    LET             reduce using rule 12 (factor -> numero .)
+    IF              reduce using rule 12 (factor -> numero .)
+    ENTERO          reduce using rule 12 (factor -> numero .)
+    DECIMAL         reduce using rule 12 (factor -> numero .)
+    $end            reduce using rule 12 (factor -> numero .)
+    MAYOR           reduce using rule 12 (factor -> numero .)
+    MENOR           reduce using rule 12 (factor -> numero .)
+    MAYORIGUAL      reduce using rule 12 (factor -> numero .)
+    MENORIGUAL      reduce using rule 12 (factor -> numero .)
+    IGUALIGUAL      reduce using rule 12 (factor -> numero .)
+    DIFERENTE       reduce using rule 12 (factor -> numero .)
+    PARDER          reduce using rule 12 (factor -> numero .)
+    THEN            reduce using rule 12 (factor -> numero .)
+    ELSE            reduce using rule 12 (factor -> numero .)
+    ENDLET          reduce using rule 12 (factor -> numero .)
+    ENDIF           reduce using rule 12 (factor -> numero .)
+    IN              reduce using rule 12 (factor -> numero .)
+
+
+state 9
+
+    (13) factor -> PARIZQ . expresion PARDER
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 20
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 10
+
+    (14) factor -> LET . ID IGUAL expresion IN programa ENDLET PTCOMA
+
+    ID              shift and go to state 21
+
+
+state 11
+
+    (15) factor -> IF . condicion THEN programa ELSE programa ENDIF
+    (2) condicion -> . expresion
+    (3) condicion -> . expresion op_relacional expresion
+    (4) condicion -> . COMENTARIO
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    COMENTARIO      shift and go to state 4
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    condicion                      shift and go to state 22
+    expresion                      shift and go to state 3
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 12
+
+    (22) numero -> ENTERO .
+
+    MULTIPLICACION  reduce using rule 22 (numero -> ENTERO .)
+    DIVISION        reduce using rule 22 (numero -> ENTERO .)
+    MAS             reduce using rule 22 (numero -> ENTERO .)
+    MENOS           reduce using rule 22 (numero -> ENTERO .)
+    ID              reduce using rule 22 (numero -> ENTERO .)
+    PARIZQ          reduce using rule 22 (numero -> ENTERO .)
+    LET             reduce using rule 22 (numero -> ENTERO .)
+    IF              reduce using rule 22 (numero -> ENTERO .)
+    ENTERO          reduce using rule 22 (numero -> ENTERO .)
+    DECIMAL         reduce using rule 22 (numero -> ENTERO .)
+    $end            reduce using rule 22 (numero -> ENTERO .)
+    MAYOR           reduce using rule 22 (numero -> ENTERO .)
+    MENOR           reduce using rule 22 (numero -> ENTERO .)
+    MAYORIGUAL      reduce using rule 22 (numero -> ENTERO .)
+    MENORIGUAL      reduce using rule 22 (numero -> ENTERO .)
+    IGUALIGUAL      reduce using rule 22 (numero -> ENTERO .)
+    DIFERENTE       reduce using rule 22 (numero -> ENTERO .)
+    PARDER          reduce using rule 22 (numero -> ENTERO .)
+    THEN            reduce using rule 22 (numero -> ENTERO .)
+    ELSE            reduce using rule 22 (numero -> ENTERO .)
+    ENDLET          reduce using rule 22 (numero -> ENTERO .)
+    ENDIF           reduce using rule 22 (numero -> ENTERO .)
+    IN              reduce using rule 22 (numero -> ENTERO .)
+
+
+state 13
+
+    (23) numero -> DECIMAL .
+
+    MULTIPLICACION  reduce using rule 23 (numero -> DECIMAL .)
+    DIVISION        reduce using rule 23 (numero -> DECIMAL .)
+    MAS             reduce using rule 23 (numero -> DECIMAL .)
+    MENOS           reduce using rule 23 (numero -> DECIMAL .)
+    ID              reduce using rule 23 (numero -> DECIMAL .)
+    PARIZQ          reduce using rule 23 (numero -> DECIMAL .)
+    LET             reduce using rule 23 (numero -> DECIMAL .)
+    IF              reduce using rule 23 (numero -> DECIMAL .)
+    ENTERO          reduce using rule 23 (numero -> DECIMAL .)
+    DECIMAL         reduce using rule 23 (numero -> DECIMAL .)
+    $end            reduce using rule 23 (numero -> DECIMAL .)
+    MAYOR           reduce using rule 23 (numero -> DECIMAL .)
+    MENOR           reduce using rule 23 (numero -> DECIMAL .)
+    MAYORIGUAL      reduce using rule 23 (numero -> DECIMAL .)
+    MENORIGUAL      reduce using rule 23 (numero -> DECIMAL .)
+    IGUALIGUAL      reduce using rule 23 (numero -> DECIMAL .)
+    DIFERENTE       reduce using rule 23 (numero -> DECIMAL .)
+    PARDER          reduce using rule 23 (numero -> DECIMAL .)
+    THEN            reduce using rule 23 (numero -> DECIMAL .)
+    ELSE            reduce using rule 23 (numero -> DECIMAL .)
+    ENDLET          reduce using rule 23 (numero -> DECIMAL .)
+    ENDIF           reduce using rule 23 (numero -> DECIMAL .)
+    IN              reduce using rule 23 (numero -> DECIMAL .)
+
+
+state 14
+
+    (16) op_relacional -> expresion . MAYOR expresion
+    (17) op_relacional -> expresion . MENOR expresion
+    (18) op_relacional -> expresion . MAYORIGUAL expresion
+    (19) op_relacional -> expresion . MENORIGUAL expresion
+    (20) op_relacional -> expresion . IGUALIGUAL expresion
+    (21) op_relacional -> expresion . DIFERENTE expresion
+
+    MAYOR           shift and go to state 23
+    MENOR           shift and go to state 24
+    MAYORIGUAL      shift and go to state 25
+    MENORIGUAL      shift and go to state 26
+    IGUALIGUAL      shift and go to state 27
+    DIFERENTE       shift and go to state 28
+
+
+state 15
+
+    (3) condicion -> expresion op_relacional . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 29
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 16
+
+    (6) expresion -> termino MAS . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    termino                        shift and go to state 5
+    expresion                      shift and go to state 30
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 17
+
+    (7) expresion -> termino MENOS . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    termino                        shift and go to state 5
+    expresion                      shift and go to state 31
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 18
+
+    (9) termino -> factor MULTIPLICACION . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    factor                         shift and go to state 6
+    expresion                      shift and go to state 32
+    termino                        shift and go to state 5
+    numero                         shift and go to state 8
+
+state 19
+
+    (10) termino -> factor DIVISION . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    factor                         shift and go to state 6
+    expresion                      shift and go to state 33
+    termino                        shift and go to state 5
+    numero                         shift and go to state 8
+
+state 20
+
+    (13) factor -> PARIZQ expresion . PARDER
+
+    PARDER          shift and go to state 34
+
+
+state 21
+
+    (14) factor -> LET ID . IGUAL expresion IN programa ENDLET PTCOMA
+
+    IGUAL           shift and go to state 35
+
+
+state 22
+
+    (15) factor -> IF condicion . THEN programa ELSE programa ENDIF
+
+    THEN            shift and go to state 36
+
+
+state 23
+
+    (16) op_relacional -> expresion MAYOR . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 37
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 24
+
+    (17) op_relacional -> expresion MENOR . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 38
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 25
+
+    (18) op_relacional -> expresion MAYORIGUAL . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 39
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 26
+
+    (19) op_relacional -> expresion MENORIGUAL . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 40
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 27
+
+    (20) op_relacional -> expresion IGUALIGUAL . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 41
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 28
+
+    (21) op_relacional -> expresion DIFERENTE . expresion
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 42
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 29
+
+    (3) condicion -> expresion op_relacional expresion .
+
+    $end            reduce using rule 3 (condicion -> expresion op_relacional expresion .)
+    THEN            reduce using rule 3 (condicion -> expresion op_relacional expresion .)
+    ELSE            reduce using rule 3 (condicion -> expresion op_relacional expresion .)
+    ENDLET          reduce using rule 3 (condicion -> expresion op_relacional expresion .)
+    ENDIF           reduce using rule 3 (condicion -> expresion op_relacional expresion .)
+
+
+state 30
+
+    (6) expresion -> termino MAS expresion .
+
+    ID              reduce using rule 6 (expresion -> termino MAS expresion .)
+    PARIZQ          reduce using rule 6 (expresion -> termino MAS expresion .)
+    LET             reduce using rule 6 (expresion -> termino MAS expresion .)
+    IF              reduce using rule 6 (expresion -> termino MAS expresion .)
+    ENTERO          reduce using rule 6 (expresion -> termino MAS expresion .)
+    DECIMAL         reduce using rule 6 (expresion -> termino MAS expresion .)
+    $end            reduce using rule 6 (expresion -> termino MAS expresion .)
+    MAYOR           reduce using rule 6 (expresion -> termino MAS expresion .)
+    MENOR           reduce using rule 6 (expresion -> termino MAS expresion .)
+    MAYORIGUAL      reduce using rule 6 (expresion -> termino MAS expresion .)
+    MENORIGUAL      reduce using rule 6 (expresion -> termino MAS expresion .)
+    IGUALIGUAL      reduce using rule 6 (expresion -> termino MAS expresion .)
+    DIFERENTE       reduce using rule 6 (expresion -> termino MAS expresion .)
+    PARDER          reduce using rule 6 (expresion -> termino MAS expresion .)
+    THEN            reduce using rule 6 (expresion -> termino MAS expresion .)
+    ELSE            reduce using rule 6 (expresion -> termino MAS expresion .)
+    ENDLET          reduce using rule 6 (expresion -> termino MAS expresion .)
+    ENDIF           reduce using rule 6 (expresion -> termino MAS expresion .)
+    MAS             reduce using rule 6 (expresion -> termino MAS expresion .)
+    MENOS           reduce using rule 6 (expresion -> termino MAS expresion .)
+    IN              reduce using rule 6 (expresion -> termino MAS expresion .)
+
+
+state 31
+
+    (7) expresion -> termino MENOS expresion .
+
+    ID              reduce using rule 7 (expresion -> termino MENOS expresion .)
+    PARIZQ          reduce using rule 7 (expresion -> termino MENOS expresion .)
+    LET             reduce using rule 7 (expresion -> termino MENOS expresion .)
+    IF              reduce using rule 7 (expresion -> termino MENOS expresion .)
+    ENTERO          reduce using rule 7 (expresion -> termino MENOS expresion .)
+    DECIMAL         reduce using rule 7 (expresion -> termino MENOS expresion .)
+    $end            reduce using rule 7 (expresion -> termino MENOS expresion .)
+    MAYOR           reduce using rule 7 (expresion -> termino MENOS expresion .)
+    MENOR           reduce using rule 7 (expresion -> termino MENOS expresion .)
+    MAYORIGUAL      reduce using rule 7 (expresion -> termino MENOS expresion .)
+    MENORIGUAL      reduce using rule 7 (expresion -> termino MENOS expresion .)
+    IGUALIGUAL      reduce using rule 7 (expresion -> termino MENOS expresion .)
+    DIFERENTE       reduce using rule 7 (expresion -> termino MENOS expresion .)
+    PARDER          reduce using rule 7 (expresion -> termino MENOS expresion .)
+    THEN            reduce using rule 7 (expresion -> termino MENOS expresion .)
+    ELSE            reduce using rule 7 (expresion -> termino MENOS expresion .)
+    ENDLET          reduce using rule 7 (expresion -> termino MENOS expresion .)
+    ENDIF           reduce using rule 7 (expresion -> termino MENOS expresion .)
+    MAS             reduce using rule 7 (expresion -> termino MENOS expresion .)
+    MENOS           reduce using rule 7 (expresion -> termino MENOS expresion .)
+    IN              reduce using rule 7 (expresion -> termino MENOS expresion .)
+
+
+state 32
+
+    (9) termino -> factor MULTIPLICACION expresion .
+
+    MAS             reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    MENOS           reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    ID              reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    PARIZQ          reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    LET             reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    IF              reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    ENTERO          reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    DECIMAL         reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    $end            reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    MAYOR           reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    MENOR           reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    MAYORIGUAL      reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    MENORIGUAL      reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    IGUALIGUAL      reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    DIFERENTE       reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    PARDER          reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    THEN            reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    ELSE            reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    ENDLET          reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    ENDIF           reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+    IN              reduce using rule 9 (termino -> factor MULTIPLICACION expresion .)
+
+
+state 33
+
+    (10) termino -> factor DIVISION expresion .
+
+    MAS             reduce using rule 10 (termino -> factor DIVISION expresion .)
+    MENOS           reduce using rule 10 (termino -> factor DIVISION expresion .)
+    ID              reduce using rule 10 (termino -> factor DIVISION expresion .)
+    PARIZQ          reduce using rule 10 (termino -> factor DIVISION expresion .)
+    LET             reduce using rule 10 (termino -> factor DIVISION expresion .)
+    IF              reduce using rule 10 (termino -> factor DIVISION expresion .)
+    ENTERO          reduce using rule 10 (termino -> factor DIVISION expresion .)
+    DECIMAL         reduce using rule 10 (termino -> factor DIVISION expresion .)
+    $end            reduce using rule 10 (termino -> factor DIVISION expresion .)
+    MAYOR           reduce using rule 10 (termino -> factor DIVISION expresion .)
+    MENOR           reduce using rule 10 (termino -> factor DIVISION expresion .)
+    MAYORIGUAL      reduce using rule 10 (termino -> factor DIVISION expresion .)
+    MENORIGUAL      reduce using rule 10 (termino -> factor DIVISION expresion .)
+    IGUALIGUAL      reduce using rule 10 (termino -> factor DIVISION expresion .)
+    DIFERENTE       reduce using rule 10 (termino -> factor DIVISION expresion .)
+    PARDER          reduce using rule 10 (termino -> factor DIVISION expresion .)
+    THEN            reduce using rule 10 (termino -> factor DIVISION expresion .)
+    ELSE            reduce using rule 10 (termino -> factor DIVISION expresion .)
+    ENDLET          reduce using rule 10 (termino -> factor DIVISION expresion .)
+    ENDIF           reduce using rule 10 (termino -> factor DIVISION expresion .)
+    IN              reduce using rule 10 (termino -> factor DIVISION expresion .)
+
+
+state 34
+
+    (13) factor -> PARIZQ expresion PARDER .
+
+    MULTIPLICACION  reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    DIVISION        reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    MAS             reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    MENOS           reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    ID              reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    PARIZQ          reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    LET             reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    IF              reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    ENTERO          reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    DECIMAL         reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    $end            reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    MAYOR           reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    MENOR           reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    MAYORIGUAL      reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    MENORIGUAL      reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    IGUALIGUAL      reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    DIFERENTE       reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    PARDER          reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    THEN            reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    ELSE            reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    ENDLET          reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    ENDIF           reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+    IN              reduce using rule 13 (factor -> PARIZQ expresion PARDER .)
+
+
+state 35
+
+    (14) factor -> LET ID IGUAL . expresion IN programa ENDLET PTCOMA
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 43
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 36
+
+    (15) factor -> IF condicion THEN . programa ELSE programa ENDIF
+    (1) programa -> . condicion
+    (2) condicion -> . expresion
+    (3) condicion -> . expresion op_relacional expresion
+    (4) condicion -> . COMENTARIO
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    COMENTARIO      shift and go to state 4
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    condicion                      shift and go to state 2
+    programa                       shift and go to state 44
+    expresion                      shift and go to state 3
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 37
+
+    (16) op_relacional -> expresion MAYOR expresion .
+
+    ID              reduce using rule 16 (op_relacional -> expresion MAYOR expresion .)
+    PARIZQ          reduce using rule 16 (op_relacional -> expresion MAYOR expresion .)
+    LET             reduce using rule 16 (op_relacional -> expresion MAYOR expresion .)
+    IF              reduce using rule 16 (op_relacional -> expresion MAYOR expresion .)
+    ENTERO          reduce using rule 16 (op_relacional -> expresion MAYOR expresion .)
+    DECIMAL         reduce using rule 16 (op_relacional -> expresion MAYOR expresion .)
+
+
+state 38
+
+    (17) op_relacional -> expresion MENOR expresion .
+
+    ID              reduce using rule 17 (op_relacional -> expresion MENOR expresion .)
+    PARIZQ          reduce using rule 17 (op_relacional -> expresion MENOR expresion .)
+    LET             reduce using rule 17 (op_relacional -> expresion MENOR expresion .)
+    IF              reduce using rule 17 (op_relacional -> expresion MENOR expresion .)
+    ENTERO          reduce using rule 17 (op_relacional -> expresion MENOR expresion .)
+    DECIMAL         reduce using rule 17 (op_relacional -> expresion MENOR expresion .)
+
+
+state 39
+
+    (18) op_relacional -> expresion MAYORIGUAL expresion .
+
+    ID              reduce using rule 18 (op_relacional -> expresion MAYORIGUAL expresion .)
+    PARIZQ          reduce using rule 18 (op_relacional -> expresion MAYORIGUAL expresion .)
+    LET             reduce using rule 18 (op_relacional -> expresion MAYORIGUAL expresion .)
+    IF              reduce using rule 18 (op_relacional -> expresion MAYORIGUAL expresion .)
+    ENTERO          reduce using rule 18 (op_relacional -> expresion MAYORIGUAL expresion .)
+    DECIMAL         reduce using rule 18 (op_relacional -> expresion MAYORIGUAL expresion .)
+
+
+state 40
+
+    (19) op_relacional -> expresion MENORIGUAL expresion .
+
+    ID              reduce using rule 19 (op_relacional -> expresion MENORIGUAL expresion .)
+    PARIZQ          reduce using rule 19 (op_relacional -> expresion MENORIGUAL expresion .)
+    LET             reduce using rule 19 (op_relacional -> expresion MENORIGUAL expresion .)
+    IF              reduce using rule 19 (op_relacional -> expresion MENORIGUAL expresion .)
+    ENTERO          reduce using rule 19 (op_relacional -> expresion MENORIGUAL expresion .)
+    DECIMAL         reduce using rule 19 (op_relacional -> expresion MENORIGUAL expresion .)
+
+
+state 41
+
+    (20) op_relacional -> expresion IGUALIGUAL expresion .
+
+    ID              reduce using rule 20 (op_relacional -> expresion IGUALIGUAL expresion .)
+    PARIZQ          reduce using rule 20 (op_relacional -> expresion IGUALIGUAL expresion .)
+    LET             reduce using rule 20 (op_relacional -> expresion IGUALIGUAL expresion .)
+    IF              reduce using rule 20 (op_relacional -> expresion IGUALIGUAL expresion .)
+    ENTERO          reduce using rule 20 (op_relacional -> expresion IGUALIGUAL expresion .)
+    DECIMAL         reduce using rule 20 (op_relacional -> expresion IGUALIGUAL expresion .)
+
+
+state 42
+
+    (21) op_relacional -> expresion DIFERENTE expresion .
+
+    ID              reduce using rule 21 (op_relacional -> expresion DIFERENTE expresion .)
+    PARIZQ          reduce using rule 21 (op_relacional -> expresion DIFERENTE expresion .)
+    LET             reduce using rule 21 (op_relacional -> expresion DIFERENTE expresion .)
+    IF              reduce using rule 21 (op_relacional -> expresion DIFERENTE expresion .)
+    ENTERO          reduce using rule 21 (op_relacional -> expresion DIFERENTE expresion .)
+    DECIMAL         reduce using rule 21 (op_relacional -> expresion DIFERENTE expresion .)
+
+
+state 43
+
+    (14) factor -> LET ID IGUAL expresion . IN programa ENDLET PTCOMA
+
+    IN              shift and go to state 45
+
+
+state 44
+
+    (15) factor -> IF condicion THEN programa . ELSE programa ENDIF
+
+    ELSE            shift and go to state 46
+
+
+state 45
+
+    (14) factor -> LET ID IGUAL expresion IN . programa ENDLET PTCOMA
+    (1) programa -> . condicion
+    (2) condicion -> . expresion
+    (3) condicion -> . expresion op_relacional expresion
+    (4) condicion -> . COMENTARIO
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    COMENTARIO      shift and go to state 4
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    expresion                      shift and go to state 3
+    programa                       shift and go to state 47
+    condicion                      shift and go to state 2
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 46
+
+    (15) factor -> IF condicion THEN programa ELSE . programa ENDIF
+    (1) programa -> . condicion
+    (2) condicion -> . expresion
+    (3) condicion -> . expresion op_relacional expresion
+    (4) condicion -> . COMENTARIO
+    (5) expresion -> . termino
+    (6) expresion -> . termino MAS expresion
+    (7) expresion -> . termino MENOS expresion
+    (8) termino -> . factor
+    (9) termino -> . factor MULTIPLICACION expresion
+    (10) termino -> . factor DIVISION expresion
+    (11) factor -> . ID
+    (12) factor -> . numero
+    (13) factor -> . PARIZQ expresion PARDER
+    (14) factor -> . LET ID IGUAL expresion IN programa ENDLET PTCOMA
+    (15) factor -> . IF condicion THEN programa ELSE programa ENDIF
+    (22) numero -> . ENTERO
+    (23) numero -> . DECIMAL
+
+    COMENTARIO      shift and go to state 4
+    ID              shift and go to state 7
+    PARIZQ          shift and go to state 9
+    LET             shift and go to state 10
+    IF              shift and go to state 11
+    ENTERO          shift and go to state 12
+    DECIMAL         shift and go to state 13
+
+    condicion                      shift and go to state 2
+    programa                       shift and go to state 48
+    expresion                      shift and go to state 3
+    termino                        shift and go to state 5
+    factor                         shift and go to state 6
+    numero                         shift and go to state 8
+
+state 47
+
+    (14) factor -> LET ID IGUAL expresion IN programa . ENDLET PTCOMA
+
+    ENDLET          shift and go to state 49
+
+
+state 48
+
+    (15) factor -> IF condicion THEN programa ELSE programa . ENDIF
+
+    ENDIF           shift and go to state 50
+
+
+state 49
+
+    (14) factor -> LET ID IGUAL expresion IN programa ENDLET . PTCOMA
+
+    PTCOMA          shift and go to state 51
+
+
+state 50
+
+    (15) factor -> IF condicion THEN programa ELSE programa ENDIF .
+
+    MULTIPLICACION  reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    DIVISION        reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    MAS             reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    MENOS           reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    ID              reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    PARIZQ          reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    LET             reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    IF              reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    ENTERO          reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    DECIMAL         reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    $end            reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    MAYOR           reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    MENOR           reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    MAYORIGUAL      reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    MENORIGUAL      reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    IGUALIGUAL      reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    DIFERENTE       reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    PARDER          reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    THEN            reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    ELSE            reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    ENDLET          reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    ENDIF           reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+    IN              reduce using rule 15 (factor -> IF condicion THEN programa ELSE programa ENDIF .)
+
+
+state 51
+
+    (14) factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .
+
+    MULTIPLICACION  reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    DIVISION        reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    MAS             reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    MENOS           reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    ID              reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    PARIZQ          reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    LET             reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    IF              reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    ENTERO          reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    DECIMAL         reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    $end            reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    MAYOR           reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    MENOR           reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    MAYORIGUAL      reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    MENORIGUAL      reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    IGUALIGUAL      reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    DIFERENTE       reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    PARDER          reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    THEN            reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    ELSE            reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    ENDLET          reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    ENDIF           reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+    IN              reduce using rule 14 (factor -> LET ID IGUAL expresion IN programa ENDLET PTCOMA .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for MAS in state 5 resolved as shift
+WARNING: shift/reduce conflict for MENOS in state 5 resolved as shift

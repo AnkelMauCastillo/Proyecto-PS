@@ -1,0 +1,333 @@
+    lex.py: 924:lex: tokens   = ['ID', 'PTCOMA', 'PARIZQ', 'PARDER', 'DECIMAL', 'ENTERO', 'MAYORIGUAL', 'MENORIGUAL', 'IGUALIGUAL', 'DIFERENTE', 'IGUAL', 'MAYOR', 'MENOR', 'MAS', 'MENOS', 'MULTIPLICACION', 'DIVISION', 'COMENTARIO', 'LET', 'IN', 'ENDLET', 'IF', 'THEN', 'ELSE', 'ENDIF']
+    lex.py: 925:lex: literals = ''
+    lex.py: 926:lex: states   = {'INITIAL': 'inclusive'}
+    lex.py: 953:lex: Adding rule t_ID -> '[a-zA-Z_][a-zA-Z_0-9]*' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_DECIMAL -> '\d+\.\d+' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_ENTERO -> '\d+' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_COMENTARIO -> '%.*' (state 'INITIAL')
+    lex.py: 953:lex: Adding rule t_newline -> '\n+' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_PARIZQ -> '\(' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_PARDER -> '\)' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MAYORIGUAL -> '>=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MENORIGUAL -> '<=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_DIFERENTE -> '!=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_IGUALIGUAL -> '==' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MAS -> '\+' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MENOS -> '\-' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MAYOR -> '\>' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MENOR -> '\<' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_MULTIPLICACION -> '\*' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_PTCOMA -> ';' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_IGUAL -> '=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_DIVISION -> '/' (state 'INITIAL')
+    lex.py: 966:lex: ==== MASTER REGEXS FOLLOW ====
+    lex.py: 975:lex: state 'INITIAL' : regex[0] = '(?P<t_ID>[a-zA-Z_][a-zA-Z_0-9]*)|(?P<t_DECIMAL>\d+\.\d+)|(?P<t_ENTERO>\d+)|(?P<t_COMENTARIO>%.*)|(?P<t_newline>\n+)|(?P<t_PARIZQ>\()|(?P<t_PARDER>\))|(?P<t_MAYORIGUAL>>=)|(?P<t_MENORIGUAL><=)|(?P<t_DIFERENTE>!=)|(?P<t_IGUALIGUAL>==)|(?P<t_MAS>\+)|(?P<t_MENOS>\-)|(?P<t_MAYOR>\>)|(?P<t_MENOR>\<)|(?P<t_MULTIPLICACION>\*)|(?P<t_PTCOMA>;)|(?P<t_IGUAL>=)|(?P<t_DIVISION>/)'
+   yacc.py: 362:PLY: PARSE DEBUG START
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ID,'let',1,0)
+   yacc.py: 445:Action : Shift and goto state 9
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . LexToken(ID,'x',1,6)
+   yacc.py: 579:Error  : ID . LexToken(ID,'x',1,6)
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . error
+   yacc.py: 579:Error  : ID . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(IGUAL,'=',1,8)
+   yacc.py: 579:Error  : . LexToken(IGUAL,'=',1,8)
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ENTERO,4,1,10)
+   yacc.py: 445:Action : Shift and goto state 11
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : ENTERO . LexToken(MULTIPLICACION,'*',1,11)
+   yacc.py: 469:Action : Reduce rule [factor -> ENTERO] with [4] and goto state 6
+   yacc.py: 506:Result : <int @ 0x1e6c2f50150> (4)
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : factor . LexToken(MULTIPLICACION,'*',1,11)
+   yacc.py: 445:Action : Shift and goto state 22
+   yacc.py: 410:
+   yacc.py: 411:State  : 22
+   yacc.py: 434:Stack  : factor MULTIPLICACION . LexToken(ENTERO,5,1,12)
+   yacc.py: 445:Action : Shift and goto state 11
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : factor MULTIPLICACION ENTERO . LexToken(MAS,'+',1,13)
+   yacc.py: 469:Action : Reduce rule [factor -> ENTERO] with [5] and goto state 6
+   yacc.py: 506:Result : <int @ 0x1e6c2f50170> (5)
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : factor MULTIPLICACION factor . LexToken(MAS,'+',1,13)
+   yacc.py: 469:Action : Reduce rule [termino -> factor] with [5] and goto state 4
+   yacc.py: 506:Result : <int @ 0x1e6c2f50170> (5)
+   yacc.py: 410:
+   yacc.py: 411:State  : 4
+   yacc.py: 434:Stack  : factor MULTIPLICACION termino . LexToken(MAS,'+',1,13)
+   yacc.py: 469:Action : Reduce rule [expresion -> termino] with [5] and goto state 35
+   yacc.py: 506:Result : <int @ 0x1e6c2f50170> (5)
+   yacc.py: 410:
+   yacc.py: 411:State  : 35
+   yacc.py: 434:Stack  : factor MULTIPLICACION expresion . LexToken(MAS,'+',1,13)
+   yacc.py: 469:Action : Reduce rule [termino -> factor MULTIPLICACION expresion] with [4,'*',5] and goto state 4
+   yacc.py: 506:Result : <str @ 0x1e6c3001170> ('*')
+   yacc.py: 410:
+   yacc.py: 411:State  : 4
+   yacc.py: 434:Stack  : termino . LexToken(MAS,'+',1,13)
+   yacc.py: 469:Action : Reduce rule [expresion -> termino] with ['*'] and goto state 3
+   yacc.py: 506:Result : <str @ 0x1e6c3001170> ('*')
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . LexToken(MAS,'+',1,13)
+   yacc.py: 445:Action : Shift and goto state 19
+   yacc.py: 410:
+   yacc.py: 411:State  : 19
+   yacc.py: 434:Stack  : expresion MAS . LexToken(ENTERO,6,1,14)
+   yacc.py: 445:Action : Shift and goto state 11
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : expresion MAS ENTERO . LexToken(ID,'in',1,16)
+   yacc.py: 579:Error  : expresion MAS ENTERO . LexToken(ID,'in',1,16)
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : expresion MAS ENTERO . error
+   yacc.py: 579:Error  : expresion MAS ENTERO . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 19
+   yacc.py: 434:Stack  : expresion MAS . error
+   yacc.py: 579:Error  : expresion MAS . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . error
+   yacc.py: 579:Error  : expresion . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ID,'if',1,19)
+   yacc.py: 445:Action : Shift and goto state 9
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . LexToken(PARIZQ,'(',1,22)
+   yacc.py: 579:Error  : ID . LexToken(PARIZQ,'(',1,22)
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . error
+   yacc.py: 579:Error  : ID . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ID,'x',1,23)
+   yacc.py: 445:Action : Shift and goto state 9
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . LexToken(MAYOR,'>',1,24)
+   yacc.py: 469:Action : Reduce rule [factor -> ID] with ['x'] and goto state 6
+   yacc.py: 506:Result : <str @ 0x1e6c3001230> ('x')
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : factor . LexToken(MAYOR,'>',1,24)
+   yacc.py: 469:Action : Reduce rule [termino -> factor] with ['x'] and goto state 4
+   yacc.py: 506:Result : <str @ 0x1e6c3001230> ('x')
+   yacc.py: 410:
+   yacc.py: 411:State  : 4
+   yacc.py: 434:Stack  : termino . LexToken(MAYOR,'>',1,24)
+   yacc.py: 469:Action : Reduce rule [expresion -> termino] with ['x'] and goto state 3
+   yacc.py: 506:Result : <str @ 0x1e6c3001230> ('x')
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . LexToken(MAYOR,'>',1,24)
+   yacc.py: 445:Action : Shift and goto state 13
+   yacc.py: 410:
+   yacc.py: 411:State  : 13
+   yacc.py: 434:Stack  : expresion MAYOR . LexToken(ENTERO,0,1,25)
+   yacc.py: 445:Action : Shift and goto state 11
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : expresion MAYOR ENTERO . LexToken(PARDER,')',1,26)
+   yacc.py: 469:Action : Reduce rule [factor -> ENTERO] with [0] and goto state 6
+   yacc.py: 506:Result : <int @ 0x1e6c2f500d0> (0)
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : expresion MAYOR factor . LexToken(PARDER,')',1,26)
+   yacc.py: 469:Action : Reduce rule [termino -> factor] with [0] and goto state 4
+   yacc.py: 506:Result : <int @ 0x1e6c2f500d0> (0)
+   yacc.py: 410:
+   yacc.py: 411:State  : 4
+   yacc.py: 434:Stack  : expresion MAYOR termino . LexToken(PARDER,')',1,26)
+   yacc.py: 469:Action : Reduce rule [expresion -> termino] with [0] and goto state 27
+   yacc.py: 506:Result : <int @ 0x1e6c2f500d0> (0)
+   yacc.py: 410:
+   yacc.py: 411:State  : 27
+   yacc.py: 434:Stack  : expresion MAYOR expresion . LexToken(PARDER,')',1,26)
+   yacc.py: 579:Error  : expresion MAYOR expresion . LexToken(PARDER,')',1,26)
+   yacc.py: 410:
+   yacc.py: 411:State  : 27
+   yacc.py: 434:Stack  : expresion MAYOR expresion . error
+   yacc.py: 579:Error  : expresion MAYOR expresion . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 13
+   yacc.py: 434:Stack  : expresion MAYOR . error
+   yacc.py: 579:Error  : expresion MAYOR . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . error
+   yacc.py: 579:Error  : expresion . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ID,'then',1,28)
+   yacc.py: 445:Action : Shift and goto state 9
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . LexToken(ID,'x',1,34)
+   yacc.py: 579:Error  : ID . LexToken(ID,'x',1,34)
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . error
+   yacc.py: 579:Error  : ID . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(DIVISION,'/',1,35)
+   yacc.py: 579:Error  : . LexToken(DIVISION,'/',1,35)
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ENTERO,2,1,36)
+   yacc.py: 445:Action : Shift and goto state 11
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : ENTERO . LexToken(ID,'else',1,38)
+   yacc.py: 579:Error  : ENTERO . LexToken(ID,'else',1,38)
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : ENTERO . error
+   yacc.py: 579:Error  : ENTERO . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ID,'x',1,43)
+   yacc.py: 445:Action : Shift and goto state 9
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . LexToken(MAS,'+',1,44)
+   yacc.py: 469:Action : Reduce rule [factor -> ID] with ['x'] and goto state 6
+   yacc.py: 506:Result : <str @ 0x1e6c3001230> ('x')
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : factor . LexToken(MAS,'+',1,44)
+   yacc.py: 469:Action : Reduce rule [termino -> factor] with ['x'] and goto state 4
+   yacc.py: 506:Result : <str @ 0x1e6c3001230> ('x')
+   yacc.py: 410:
+   yacc.py: 411:State  : 4
+   yacc.py: 434:Stack  : termino . LexToken(MAS,'+',1,44)
+   yacc.py: 469:Action : Reduce rule [expresion -> termino] with ['x'] and goto state 3
+   yacc.py: 506:Result : <str @ 0x1e6c3001230> ('x')
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . LexToken(MAS,'+',1,44)
+   yacc.py: 445:Action : Shift and goto state 19
+   yacc.py: 410:
+   yacc.py: 411:State  : 19
+   yacc.py: 434:Stack  : expresion MAS . LexToken(ENTERO,2,1,45)
+   yacc.py: 445:Action : Shift and goto state 11
+   yacc.py: 410:
+   yacc.py: 411:State  : 11
+   yacc.py: 434:Stack  : expresion MAS ENTERO . LexToken(MAYORIGUAL,'>=',1,46)
+   yacc.py: 469:Action : Reduce rule [factor -> ENTERO] with [2] and goto state 6
+   yacc.py: 506:Result : <int @ 0x1e6c2f50110> (2)
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : expresion MAS factor . LexToken(MAYORIGUAL,'>=',1,46)
+   yacc.py: 469:Action : Reduce rule [termino -> factor] with [2] and goto state 33
+   yacc.py: 506:Result : <int @ 0x1e6c2f50110> (2)
+   yacc.py: 410:
+   yacc.py: 411:State  : 33
+   yacc.py: 434:Stack  : expresion MAS termino . LexToken(MAYORIGUAL,'>=',1,46)
+   yacc.py: 469:Action : Reduce rule [expresion -> expresion MAS termino] with ['x','+',2] and goto state 3
+   yacc.py: 506:Result : <str @ 0x1e6c31308b0> ('+')
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . LexToken(MAYORIGUAL,'>=',1,46)
+   yacc.py: 445:Action : Shift and goto state 15
+   yacc.py: 410:
+   yacc.py: 411:State  : 15
+   yacc.py: 434:Stack  : expresion MAYORIGUAL . LexToken(DECIMAL,9.6,1,48)
+   yacc.py: 445:Action : Shift and goto state 12
+   yacc.py: 410:
+   yacc.py: 411:State  : 12
+   yacc.py: 434:Stack  : expresion MAYORIGUAL DECIMAL . LexToken(ID,'endif',1,52)
+   yacc.py: 579:Error  : expresion MAYORIGUAL DECIMAL . LexToken(ID,'endif',1,52)
+   yacc.py: 410:
+   yacc.py: 411:State  : 12
+   yacc.py: 434:Stack  : expresion MAYORIGUAL DECIMAL . error
+   yacc.py: 579:Error  : expresion MAYORIGUAL DECIMAL . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 15
+   yacc.py: 434:Stack  : expresion MAYORIGUAL . error
+   yacc.py: 579:Error  : expresion MAYORIGUAL . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . error
+   yacc.py: 579:Error  : expresion . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . error
+   yacc.py: 579:Error  : . error
+   yacc.py: 410:
+   yacc.py: 411:State  : 0
+   yacc.py: 434:Stack  : . LexToken(ID,'endlet',1,58)
+   yacc.py: 445:Action : Shift and goto state 9
+   yacc.py: 410:
+   yacc.py: 411:State  : 9
+   yacc.py: 434:Stack  : ID . $end
+   yacc.py: 469:Action : Reduce rule [factor -> ID] with ['endlet'] and goto state 6
+   yacc.py: 506:Result : <str @ 0x1e6c3518930> ('endlet')
+   yacc.py: 410:
+   yacc.py: 411:State  : 6
+   yacc.py: 434:Stack  : factor . $end
+   yacc.py: 469:Action : Reduce rule [termino -> factor] with ['endlet'] and goto state 4
+   yacc.py: 506:Result : <str @ 0x1e6c3518930> ('endlet')
+   yacc.py: 410:
+   yacc.py: 411:State  : 4
+   yacc.py: 434:Stack  : termino . $end
+   yacc.py: 469:Action : Reduce rule [expresion -> termino] with ['endlet'] and goto state 3
+   yacc.py: 506:Result : <str @ 0x1e6c3518930> ('endlet')
+   yacc.py: 410:
+   yacc.py: 411:State  : 3
+   yacc.py: 434:Stack  : expresion . $end
+   yacc.py: 469:Action : Reduce rule [condicion -> expresion] with ['endlet'] and goto state 2
+   yacc.py: 506:Result : <str @ 0x1e6c3518930> ('endlet')
+   yacc.py: 410:
+   yacc.py: 411:State  : 2
+   yacc.py: 434:Stack  : condicion . $end
+   yacc.py: 469:Action : Reduce rule [programa -> condicion] with ['endlet'] and goto state 1
+   yacc.py: 506:Result : <str @ 0x1e6c3518930> ('endlet')
+   yacc.py: 410:
+   yacc.py: 411:State  : 1
+   yacc.py: 434:Stack  : programa . $end
+   yacc.py: 571:Done   : Returning <str @ 0x1e6c3518930> ('endlet')
+   yacc.py: 572:PLY: PARSE DEBUG END
